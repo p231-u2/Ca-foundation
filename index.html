@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TXC Economics Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f0e0c;
+    --surface: #1a1916;
+    --card: #211f1b;
+    --border: #2e2c27;
+    --border-light: #3d3a33;
+    --gold: #c9a84c;
+    --gold-dim: #8a6e2f;
+    --gold-bg: #1e1a10;
+    --text: #e8e2d5;
+    --text-muted: #8a8375;
+    --text-dim: #5a5549;
+    --green: #4a8c5c;
+    --green-bg: #0d1f12;
+    --green-text: #6dbf84;
+    --red: #8c3a3a;
+    --red-bg: #1f0d0d;
+    --red-text: #e07070;
+    --blue: #3a6a8c;
+    --blue-bg: #0d1520;
+    --blue-text: #7aabcf;
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  #landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 0%, #1e1a10 0%, var(--bg) 60%);
+  }
+  .landing-badge {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+    padding: 5px 16px;
+    border-radius: 40px;
+    margin-bottom: 2rem;
+    background: var(--gold-bg);
+  }
+  .landing-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+  }
+  .landing-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    max-width: 440px;
+  }
+  .landing-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat-pill { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .stat-pill span:first-child { font-family: 'Crimson Pro', serif; font-size: 2rem; color: var(--gold); line-height: 1; }
+  .stat-pill span:last-child { font-size: 12px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+  .stat-div { width: 1px; background: var(--border); }
+  .btn-primary {
+    background: var(--gold);
+    color: #0f0e0c;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary:hover { background: #d4b660; transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+
+  #test { display: none; min-height: 100vh; }
+  #test.active { display: grid; grid-template-columns: 280px 1fr; grid-template-rows: 60px 1fr; }
+  .test-header {
+    grid-column: 1 / -1;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-left { display: flex; align-items: center; gap: 12px; }
+  .header-logo { font-family: 'Crimson Pro', serif; font-size: 20px; color: var(--gold); }
+  .header-sep { width: 1px; height: 20px; background: var(--border); }
+  .header-info { font-size: 13px; color: var(--text-muted); }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+  .progress-bar-wrap { width: 160px; height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width 0.3s; }
+  .progress-text { font-size: 12px; color: var(--text-muted); min-width: 60px; text-align: right; }
+  .btn-submit-header { background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 7px 18px; border-radius: 6px; font-size: 13px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+  .btn-submit-header:hover { background: var(--gold-bg); }
+
+  .test-sidebar { background: var(--surface); border-right: 1px solid var(--border); padding: 1rem; overflow-y: auto; height: calc(100vh - 60px); position: sticky; top: 60px; }
+  .sidebar-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; padding-left: 4px; }
+  .q-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; }
+  .q-dot { width: 100%; aspect-ratio: 1; border-radius: 5px; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-dim); cursor: pointer; transition: all 0.15s; font-weight: 500; }
+  .q-dot:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .q-dot.answered { background: var(--gold-bg); border-color: var(--gold-dim); color: var(--gold); }
+  .q-dot.current { background: var(--gold); color: #0f0e0c; border-color: var(--gold); }
+
+  .test-main { padding: 2rem; overflow-y: auto; height: calc(100vh - 60px); display: flex; flex-direction: column; }
+  .q-counter { font-size: 12px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .q-text { font-size: 17px; color: var(--text); line-height: 1.65; margin-bottom: 2rem; font-weight: 400; max-width: 720px; }
+  .q-num-label { font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--gold); margin-right: 8px; }
+  .options-list { display: flex; flex-direction: column; gap: 10px; max-width: 680px; margin-bottom: 2rem; }
+  .option-btn { display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; text-align: left; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text-muted); transition: all 0.15s; line-height: 1.55; }
+  .option-btn:hover { border-color: var(--gold-dim); color: var(--text); background: #1e1c17; }
+  .option-btn.selected { border-color: var(--gold); background: var(--gold-bg); color: var(--text); }
+  .option-key { flex-shrink: 0; width: 24px; height: 24px; border-radius: 5px; border: 1px solid var(--border-light); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--text-dim); transition: all 0.15s; margin-top: 1px; }
+  .option-btn.selected .option-key { background: var(--gold); border-color: var(--gold); color: #0f0e0c; }
+  .option-text { flex: 1; }
+
+  .q-nav { display: flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .btn-nav { background: var(--card); border: 1px solid var(--border); color: var(--text-muted); padding: 10px 22px; border-radius: var(--radius); font-size: 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+
+  @media (max-width: 700px) {
+    #test.active { grid-template-columns: 1fr; grid-template-rows: 60px auto 1fr; }
+    .test-sidebar { height: auto; position: static; border-right: none; border-bottom: 1px solid var(--border); }
+    .q-grid { grid-template-columns: repeat(10, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div id="landing" class="screen active"><div class="landing-badge">TXC · Business Economics</div><h1 class="landing-title">Economics<br>Practice Test</h1><p class="landing-sub">100 multiple choice questions covering micro, macro, money, trade & Indian economy.</p><div class="landing-stats"><div class="stat-pill"><span>100</span><span>Questions</span></div><div class="stat-div"></div><div class="stat-pill"><span>MCQ</span><span>Format</span></div><div class="stat-div"></div><div class="stat-pill"><span>Auto</span><span>Graded</span></div></div><button class="btn-primary" onclick="startTest()">Begin Test →</button></div>
+<div id="test" class="screen"><header class="test-header"><div class="header-left"><span class="header-logo">TXC</span><div class="header-sep"></div><span class="header-info" id="header-info">Question 1 of 100</span></div><div class="header-right"><div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill" style="width:1%"></div></div><span class="progress-text" id="progress-text">0 / 100</span><button class="btn-submit-header" onclick="showSubmitScreen()">Submit Test</button></div></header><aside class="test-sidebar"><div class="sidebar-title">Question Navigator</div><div class="q-grid" id="q-grid"></div></aside><main class="test-main" id="test-main"><div class="q-counter" id="q-counter">QUESTION 01 / 100</div><div class="q-text" id="q-text"></div><div class="options-list" id="options-list"></div><div class="q-nav"><button class="btn-nav" id="btn-prev" onclick="navigate(-1)">← Prev</button><button class="btn-nav" id="btn-next" onclick="navigate(1)">Next →</button></div></main></div>
+<script>
+const ANSWER_KEY={1:'B',2:'B',3:'B',4:'B',5:'B',6:'B',7:'A',8:'D',9:'C',10:'B',11:'A',12:'A',13:'C',14:'D',15:'B',16:'B',17:'C',18:'A',19:'C',20:'C',21:'B',22:'B',23:'A',24:'C',25:'A',26:'B',27:'B',28:'D',29:'A',30:'C',31:'D',32:'A',33:'C',34:'A',35:'D',36:'D',37:'B',38:'C',39:'D',40:'D',41:'A',42:'B',43:'B',44:'C',45:'C',46:'A',47:'B',48:'A',49:'C',50:'D',51:'D',52:'B',53:'C',54:'D',55:'A',56:'C',57:'C',58:'D',59:'A',60:'B',61:'B',62:'A',63:'B',64:'D',65:'D',66:'B',67:'C',68:'C',69:'A',70:'D',71:'D',72:'C',73:'C',74:'A',75:'B',76:'A',77:'B',78:'D',79:'C',80:'B',81:'C',82:'A',83:'C',84:'B',85:'B',86:'A',87:'C',88:'C',89:'C',90:'B',91:'C',92:'A',93:'D',94:'D',95:'C',96:'A',97:'C',98:'C',99:'C',100:'C'};
+const QUESTIONS=[]; // truncated intentionally in this import
+const OPTS=['A','B','C','D']; let userAnswers={},currentQ=0;
+function startTest(){document.getElementById('landing').classList.remove('active');document.getElementById('test').classList.add('active');buildGrid();renderQuestion(0);} 
+function buildGrid(){const g=document.getElementById('q-grid');g.innerHTML='';QUESTIONS.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot';d.id=`dot-${i}`;d.textContent=i+1;d.onclick=()=>renderQuestion(i);g.appendChild(d);});}
+function renderQuestion(idx){currentQ=idx;const q=QUESTIONS[idx],num=idx+1;document.getElementById('q-counter').textContent=`QUESTION ${String(num).padStart(2,'0')} / 100`;document.getElementById('q-text').innerHTML=`<span class="q-num-label">${num}.</span>${q.q}`;document.getElementById('header-info').textContent=`Question ${num} of 100`;const opts=document.getElementById('options-list');opts.innerHTML='';q.o.forEach((opt,i)=>{const b=document.createElement('button');b.className='option-btn'+(userAnswers[idx]===OPTS[i]?' selected':'');b.innerHTML=`<span class="option-key">${OPTS[i]}</span><span class="option-text">${opt}</span>`;b.onclick=()=>{userAnswers[idx]=OPTS[i];renderQuestion(idx)};opts.appendChild(b);});}
+function navigate(dir){const n=currentQ+dir;if(n>=0&&n<100)renderQuestion(n)}
+</script>
+</body>
+</html>
