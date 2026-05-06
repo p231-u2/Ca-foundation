@@ -42,9 +42,11 @@
     line-height: 1.6;
   }
 
+  /* ── SCREENS ── */
   .screen { display: none; }
   .screen.active { display: block; }
 
+  /* ── LANDING ── */
   #landing {
     min-height: 100vh;
     display: flex;
@@ -88,9 +90,24 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  .stat-pill { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-  .stat-pill span:first-child { font-family: 'Crimson Pro', serif; font-size: 2rem; color: var(--gold); line-height: 1; }
-  .stat-pill span:last-child { font-size: 12px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+  .stat-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .stat-pill span:first-child {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-pill span:last-child {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
   .stat-div { width: 1px; background: var(--border); }
   .btn-primary {
     background: var(--gold);
@@ -108,8 +125,11 @@
   .btn-primary:hover { background: #d4b660; transform: translateY(-1px); }
   .btn-primary:active { transform: translateY(0); }
 
+  /* ── TEST LAYOUT ── */
   #test { display: none; min-height: 100vh; }
   #test.active { display: grid; grid-template-columns: 280px 1fr; grid-template-rows: 60px 1fr; }
+
+  /* ── HEADER ── */
   .test-header {
     grid-column: 1 / -1;
     background: var(--surface);
@@ -123,38 +143,420 @@
     z-index: 100;
   }
   .header-left { display: flex; align-items: center; gap: 12px; }
-  .header-logo { font-family: 'Crimson Pro', serif; font-size: 20px; color: var(--gold); }
+  .header-logo {
+    font-family: 'Crimson Pro', serif;
+    font-size: 20px;
+    color: var(--gold);
+  }
   .header-sep { width: 1px; height: 20px; background: var(--border); }
   .header-info { font-size: 13px; color: var(--text-muted); }
   .header-right { display: flex; align-items: center; gap: 12px; }
-  .progress-bar-wrap { width: 160px; height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
-  .progress-bar-fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width 0.3s; }
+  .progress-bar-wrap {
+    width: 160px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
   .progress-text { font-size: 12px; color: var(--text-muted); min-width: 60px; text-align: right; }
-  .btn-submit-header { background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 7px 18px; border-radius: 6px; font-size: 13px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+  .btn-submit-header {
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    padding: 7px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
   .btn-submit-header:hover { background: var(--gold-bg); }
 
-  .test-sidebar { background: var(--surface); border-right: 1px solid var(--border); padding: 1rem; overflow-y: auto; height: calc(100vh - 60px); position: sticky; top: 60px; }
-  .sidebar-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; padding-left: 4px; }
-  .q-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; }
-  .q-dot { width: 100%; aspect-ratio: 1; border-radius: 5px; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-dim); cursor: pointer; transition: all 0.15s; font-weight: 500; }
+  /* ── SIDEBAR ── */
+  .test-sidebar {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+    position: sticky;
+    top: 60px;
+  }
+  .sidebar-title {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+  .q-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+  }
+  .q-dot {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 5px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
   .q-dot:hover { border-color: var(--gold-dim); color: var(--gold); }
   .q-dot.answered { background: var(--gold-bg); border-color: var(--gold-dim); color: var(--gold); }
   .q-dot.current { background: var(--gold); color: #0f0e0c; border-color: var(--gold); }
+  .sidebar-legend {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0;
+  }
 
-  .test-main { padding: 2rem; overflow-y: auto; height: calc(100vh - 60px); display: flex; flex-direction: column; }
-  .q-counter { font-size: 12px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-  .q-text { font-size: 17px; color: var(--text); line-height: 1.65; margin-bottom: 2rem; font-weight: 400; max-width: 720px; }
-  .q-num-label { font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--gold); margin-right: 8px; }
-  .options-list { display: flex; flex-direction: column; gap: 10px; max-width: 680px; margin-bottom: 2rem; }
-  .option-btn { display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; text-align: left; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text-muted); transition: all 0.15s; line-height: 1.55; }
+  /* ── QUESTION AREA ── */
+  .test-main {
+    padding: 2rem;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+  }
+  .q-counter {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .q-text {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    max-width: 720px;
+  }
+  .q-num-label {
+    font-family: 'Crimson Pro', serif;
+    font-size: 15px;
+    color: var(--gold);
+    margin-right: 8px;
+  }
+  .options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 680px;
+    margin-bottom: 2rem;
+  }
+  .option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--text-muted);
+    transition: all 0.15s;
+    line-height: 1.55;
+  }
   .option-btn:hover { border-color: var(--gold-dim); color: var(--text); background: #1e1c17; }
-  .option-btn.selected { border-color: var(--gold); background: var(--gold-bg); color: var(--text); }
-  .option-key { flex-shrink: 0; width: 24px; height: 24px; border-radius: 5px; border: 1px solid var(--border-light); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--text-dim); transition: all 0.15s; margin-top: 1px; }
-  .option-btn.selected .option-key { background: var(--gold); border-color: var(--gold); color: #0f0e0c; }
+  .option-btn.selected {
+    border-color: var(--gold);
+    background: var(--gold-bg);
+    color: var(--text);
+  }
+  .option-key {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 5px;
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-dim);
+    transition: all 0.15s;
+    margin-top: 1px;
+  }
+  .option-btn.selected .option-key {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #0f0e0c;
+  }
   .option-text { flex: 1; }
 
-  .q-nav { display: flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border); }
-  .btn-nav { background: var(--card); border: 1px solid var(--border); color: var(--text-muted); padding: 10px 22px; border-radius: var(--radius); font-size: 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  /* ── NAV BUTTONS ── */
+  .q-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .btn-nav {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .btn-nav:hover { border-color: var(--border-light); color: var(--text); }
+  .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+  .btn-nav.primary { border-color: var(--gold-dim); color: var(--gold); }
+  .btn-nav.primary:hover { background: var(--gold-bg); }
+  .q-jump { flex: 1; }
+
+  /* ── SUBMIT CONFIRM ── */
+  #submit-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: radial-gradient(ellipse at 50% 0%, #1e1a10 0%, var(--bg) 60%);
+  }
+  .submit-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+  .submit-card h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .submit-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 2rem; line-height: 1.7; }
+  .submit-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+  .submit-stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 0.5rem;
+    text-align: center;
+  }
+  .submit-stat .val {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    display: block;
+  }
+  .submit-stat .lbl { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+  .submit-btns { display: flex; gap: 10px; justify-content: center; }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s;
+  }
+  .btn-ghost:hover { border-color: var(--border-light); color: var(--text); }
+
+  /* ── RESULTS ── */
+  #result-screen {
+    min-height: 100vh;
+    background: var(--bg);
+  }
+  .result-hero {
+    background: radial-gradient(ellipse at 50% 0%, #1e1a10 0%, var(--bg) 60%);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .score-ring {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--gold-dim);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    position: relative;
+  }
+  .score-ring::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+  }
+  .score-big {
+    font-family: 'Crimson Pro', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .score-total { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+  .result-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.2rem;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+  .result-grade {
+    display: inline-block;
+    font-size: 13px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .result-metrics {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .r-metric { text-align: center; }
+  .r-metric .val {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.6rem;
+    display: block;
+  }
+  .r-metric .lbl { font-size: 12px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+  .val.green { color: var(--green-text); }
+  .val.red { color: var(--red-text); }
+  .val.gold { color: var(--gold); }
+
+  /* ── REVIEW TABLE ── */
+  .review-section { padding: 2rem; max-width: 900px; margin: 0 auto; }
+  .review-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .review-header h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.5rem;
+    color: var(--text);
+  }
+  .filter-btns { display: flex; gap: 6px; }
+  .filter-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text-muted);
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { border-color: var(--border-light); color: var(--text); }
+  .filter-btn.active { background: var(--gold-bg); border-color: var(--gold-dim); color: var(--gold); }
+  .review-list { display: flex; flex-direction: column; gap: 10px; }
+  .review-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s;
+  }
+  .review-card.correct { border-left: 3px solid var(--green); }
+  .review-card.wrong { border-left: 3px solid var(--red); }
+  .review-card.skipped { border-left: 3px solid var(--text-dim); }
+  .rc-top {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;
+  }
+  .rc-num {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .rc-q { font-size: 14px; color: var(--text); line-height: 1.55; flex: 1; }
+  .rc-answers {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-left: 26px;
+  }
+  .rc-ans {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .rc-ans.your-correct {
+    background: var(--green-bg);
+    color: var(--green-text);
+    border: 1px solid var(--green);
+  }
+  .rc-ans.your-wrong {
+    background: var(--red-bg);
+    color: var(--red-text);
+    border: 1px solid var(--red);
+  }
+  .rc-ans.correct-ans {
+    background: var(--green-bg);
+    color: var(--green-text);
+    border: 1px dashed var(--green);
+  }
+  .rc-ans.skipped-ans {
+    background: var(--card);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+
+  .result-cta {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
 
   @media (max-width: 700px) {
     #test.active { grid-template-columns: 1fr; grid-template-rows: 60px auto 1fr; }
@@ -164,16 +566,417 @@
 </style>
 </head>
 <body>
-<div id="landing" class="screen active"><div class="landing-badge">TXC · Business Economics</div><h1 class="landing-title">Economics<br>Practice Test</h1><p class="landing-sub">100 multiple choice questions covering micro, macro, money, trade & Indian economy.</p><div class="landing-stats"><div class="stat-pill"><span>100</span><span>Questions</span></div><div class="stat-div"></div><div class="stat-pill"><span>MCQ</span><span>Format</span></div><div class="stat-div"></div><div class="stat-pill"><span>Auto</span><span>Graded</span></div></div><button class="btn-primary" onclick="startTest()">Begin Test →</button></div>
-<div id="test" class="screen"><header class="test-header"><div class="header-left"><span class="header-logo">TXC</span><div class="header-sep"></div><span class="header-info" id="header-info">Question 1 of 100</span></div><div class="header-right"><div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill" style="width:1%"></div></div><span class="progress-text" id="progress-text">0 / 100</span><button class="btn-submit-header" onclick="showSubmitScreen()">Submit Test</button></div></header><aside class="test-sidebar"><div class="sidebar-title">Question Navigator</div><div class="q-grid" id="q-grid"></div></aside><main class="test-main" id="test-main"><div class="q-counter" id="q-counter">QUESTION 01 / 100</div><div class="q-text" id="q-text"></div><div class="options-list" id="options-list"></div><div class="q-nav"><button class="btn-nav" id="btn-prev" onclick="navigate(-1)">← Prev</button><button class="btn-nav" id="btn-next" onclick="navigate(1)">Next →</button></div></main></div>
+
+<!-- LANDING -->
+<div id="landing" class="screen active">
+  <div class="landing-badge">TXC · Business Economics</div>
+  <h1 class="landing-title">Economics<br>Practice Test</h1>
+  <p class="landing-sub">100 multiple choice questions covering micro, macro, money, trade & Indian economy.</p>
+  <div class="landing-stats">
+    <div class="stat-pill"><span>100</span><span>Questions</span></div>
+    <div class="stat-div"></div>
+    <div class="stat-pill"><span>MCQ</span><span>Format</span></div>
+    <div class="stat-div"></div>
+    <div class="stat-pill"><span>Auto</span><span>Graded</span></div>
+  </div>
+  <button class="btn-primary" onclick="startTest()">Begin Test →</button>
+</div>
+
+<!-- TEST -->
+<div id="test" class="screen">
+  <header class="test-header">
+    <div class="header-left">
+      <span class="header-logo">TXC</span>
+      <div class="header-sep"></div>
+      <span class="header-info" id="header-info">Question 1 of 100</span>
+    </div>
+    <div class="header-right">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-fill" style="width:1%"></div>
+      </div>
+      <span class="progress-text" id="progress-text">0 / 100</span>
+      <button class="btn-submit-header" onclick="showSubmitScreen()">Submit Test</button>
+    </div>
+  </header>
+
+  <aside class="test-sidebar">
+    <div class="sidebar-title">Question Navigator</div>
+    <div class="q-grid" id="q-grid"></div>
+    <div class="sidebar-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div>Current</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--gold-bg);border:1px solid var(--gold-dim)"></div>Answered</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--card);border:1px solid var(--border)"></div>Not visited</div>
+    </div>
+  </aside>
+
+  <main class="test-main" id="test-main">
+    <div class="q-counter" id="q-counter">QUESTION 01 / 100</div>
+    <div class="q-text" id="q-text"></div>
+    <div class="options-list" id="options-list"></div>
+    <div class="q-nav">
+      <button class="btn-nav" id="btn-prev" onclick="navigate(-1)">← Prev</button>
+      <button class="btn-nav primary" id="btn-next" onclick="navigate(1)">Next →</button>
+      <div class="q-jump"></div>
+    </div>
+  </main>
+</div>
+
+<!-- SUBMIT CONFIRM -->
+<div id="submit-screen" class="screen">
+  <div class="submit-card">
+    <h2>Submit Test?</h2>
+    <p>You are about to submit your answers. Unanswered questions will be marked as skipped.</p>
+    <div class="submit-stats">
+      <div class="submit-stat"><span class="val" id="stat-answered">0</span><span class="lbl">Answered</span></div>
+      <div class="submit-stat"><span class="val" id="stat-skipped">0</span><span class="lbl">Skipped</span></div>
+      <div class="submit-stat"><span class="val" id="stat-total">100</span><span class="lbl">Total</span></div>
+    </div>
+    <div class="submit-btns">
+      <button class="btn-ghost" onclick="backToTest()">← Go Back</button>
+      <button class="btn-primary" onclick="submitTest()">Submit & See Results</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="result-screen" class="screen">
+  <div class="result-hero">
+    <div class="score-ring">
+      <span class="score-big" id="res-score">0</span>
+      <span class="score-total">out of 100</span>
+    </div>
+    <h2 class="result-title" id="res-title">—</h2>
+    <div class="result-grade" id="res-grade">—</div>
+    <div class="result-metrics">
+      <div class="r-metric"><span class="val green" id="res-correct">0</span><span class="lbl">Correct</span></div>
+      <div class="r-metric"><span class="val red" id="res-wrong">0</span><span class="lbl">Wrong</span></div>
+      <div class="r-metric"><span class="val" id="res-skipped" style="color:var(--text-dim)">0</span><span class="lbl">Skipped</span></div>
+      <div class="r-metric"><span class="val gold" id="res-accuracy">0%</span><span class="lbl">Accuracy</span></div>
+    </div>
+  </div>
+  <div class="review-section">
+    <div class="review-header">
+      <h3>Answer Review</h3>
+      <div class="filter-btns">
+        <button class="filter-btn active" onclick="filterReview('all', this)">All</button>
+        <button class="filter-btn" onclick="filterReview('correct', this)">Correct</button>
+        <button class="filter-btn" onclick="filterReview('wrong', this)">Wrong</button>
+        <button class="filter-btn" onclick="filterReview('skipped', this)">Skipped</button>
+      </div>
+    </div>
+    <div class="review-list" id="review-list"></div>
+  </div>
+  <div class="result-cta">
+    <button class="btn-primary" onclick="restartTest()">Retake Test</button>
+  </div>
+</div>
+
 <script>
-const ANSWER_KEY={1:'B',2:'B',3:'B',4:'B',5:'B',6:'B',7:'A',8:'D',9:'C',10:'B',11:'A',12:'A',13:'C',14:'D',15:'B',16:'B',17:'C',18:'A',19:'C',20:'C',21:'B',22:'B',23:'A',24:'C',25:'A',26:'B',27:'B',28:'D',29:'A',30:'C',31:'D',32:'A',33:'C',34:'A',35:'D',36:'D',37:'B',38:'C',39:'D',40:'D',41:'A',42:'B',43:'B',44:'C',45:'C',46:'A',47:'B',48:'A',49:'C',50:'D',51:'D',52:'B',53:'C',54:'D',55:'A',56:'C',57:'C',58:'D',59:'A',60:'B',61:'B',62:'A',63:'B',64:'D',65:'D',66:'B',67:'C',68:'C',69:'A',70:'D',71:'D',72:'C',73:'C',74:'A',75:'B',76:'A',77:'B',78:'D',79:'C',80:'B',81:'C',82:'A',83:'C',84:'B',85:'B',86:'A',87:'C',88:'C',89:'C',90:'B',91:'C',92:'A',93:'D',94:'D',95:'C',96:'A',97:'C',98:'C',99:'C',100:'C'};
-const QUESTIONS=[]; // truncated intentionally in this import
-const OPTS=['A','B','C','D']; let userAnswers={},currentQ=0;
-function startTest(){document.getElementById('landing').classList.remove('active');document.getElementById('test').classList.add('active');buildGrid();renderQuestion(0);} 
-function buildGrid(){const g=document.getElementById('q-grid');g.innerHTML='';QUESTIONS.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot';d.id=`dot-${i}`;d.textContent=i+1;d.onclick=()=>renderQuestion(i);g.appendChild(d);});}
-function renderQuestion(idx){currentQ=idx;const q=QUESTIONS[idx],num=idx+1;document.getElementById('q-counter').textContent=`QUESTION ${String(num).padStart(2,'0')} / 100`;document.getElementById('q-text').innerHTML=`<span class="q-num-label">${num}.</span>${q.q}`;document.getElementById('header-info').textContent=`Question ${num} of 100`;const opts=document.getElementById('options-list');opts.innerHTML='';q.o.forEach((opt,i)=>{const b=document.createElement('button');b.className='option-btn'+(userAnswers[idx]===OPTS[i]?' selected':'');b.innerHTML=`<span class="option-key">${OPTS[i]}</span><span class="option-text">${opt}</span>`;b.onclick=()=>{userAnswers[idx]=OPTS[i];renderQuestion(idx)};opts.appendChild(b);});}
-function navigate(dir){const n=currentQ+dir;if(n>=0&&n<100)renderQuestion(n)}
+const ANSWER_KEY = {
+  1:'B',2:'B',3:'B',4:'B',5:'B',6:'B',7:'A',8:'D',9:'C',10:'B',
+  11:'A',12:'A',13:'C',14:'D',15:'B',16:'B',17:'C',18:'A',19:'C',20:'C',
+  21:'B',22:'B',23:'A',24:'C',25:'A',26:'B',27:'B',28:'D',29:'A',30:'C',
+  31:'D',32:'A',33:'C',34:'A',35:'D',36:'D',37:'B',38:'C',39:'D',40:'D',
+  41:'A',42:'B',43:'B',44:'C',45:'C',46:'A',47:'B',48:'A',49:'C',50:'D',
+  51:'D',52:'B',53:'C',54:'D',55:'A',56:'C',57:'C',58:'D',59:'A',60:'B',
+  61:'B',62:'A',63:'B',64:'D',65:'D',66:'B',67:'C',68:'C',69:'A',70:'D',
+  71:'D',72:'C',73:'C',74:'A',75:'B',76:'A',77:'B',78:'D',79:'C',80:'B',
+  81:'C',82:'A',83:'C',84:'B',85:'B',86:'A',87:'C',88:'C',89:'C',90:'B',
+  91:'C',92:'A',93:'D',94:'D',95:'C',96:'A',97:'C',98:'C',99:'C',100:'C'
+};
+
+const QUESTIONS = [
+  {q:"Which of the following does not describe the nature of business economics?",o:["It is normative in nature.","It is abstract and purely theoretical.","It is an art.","It incorporates elements of Macro Analysis."]},
+  {q:'"Buyers ultimately determine which goods and services will be produced and in what quantities." The given statement is the meaning of:',o:["Planned economy","Consumer Sovereignty","Freedom of economic choice","Freedom of enterprise"]},
+  {q:"Which of the following is not one of the four basic economic problems of an economy?",o:["What to produce?","Where to produce?","For whom to produce?","What provisions are to be made for economic growth?"]},
+  {q:"Finance minister was discussing, balance of trade and balance of payments. This area comes under:",o:["Micro Economics","Macro Economics","Capitalist Economy","Mixed Economy"]},
+  {q:"Which of the following is an example of normative statement?",o:["The demand for a good will increase if its price decreases.","The government should increase taxes on liquor to reduce its consumption.","A decrease in interest rates will lead to an increase in investment.","An increase in government spending will reduce the unemployment rate."]},
+  {q:"When some people start investing money in share market then many people start following the same without considering its advantages and disadvantages is an example of:",o:["Veblen effect","Bandwagon Effect","Snob Effect","Sheep Effect"]},
+  {q:"'Ceteris Paribus' is a Latin phrase that generally means:",o:["All other things being equal","An inverse relationship","Income of consumers","Tastes and preferences of consumers"]},
+  {q:"The slope of a demand curve is:",o:["ΔQ/ΔP","ΔP/ΔQ","−ΔQ/ΔP","−ΔP/ΔQ"]},
+  {q:"A shopkeeper sells two commodities A and B, which are close substitute of each other. When the price of commodity A rises by 20%, the demand for B increases by 30%. What is the cross price elasticity for commodity B against the price of commodity A?",o:["+1","−1","+1.5","−1.5"]},
+  {q:'"Excess of the price which a consumer would be willing to pay rather than go without a thing over that which he actually does pay", is called:',o:["Consumers equilibrium","Consumers surplus","Change in demand","Change in price"]},
+  {q:"With reference to the indifference map, which of the following curve represents highest satisfaction level?",o:["IC3","IC2","IC1","All the curves represent same satisfaction level."]},
+  {q:"Which of the following refers to the want satisfying power of goods and services? It is not absolute but relative. It is a subjective concept and depends upon the mental attitude of people.",o:["Utility","Consumers equilibrium","Need","Demand"]},
+  {q:"If the price of Wheat increases from ₹1,800 per Quintal to ₹2,200 per Quintal and consequently the quantity supplied rises from 2,000 Quintal to 3,200 Quintal. Calculate the elasticity of supply.",o:["+0.7","+1.7","+2.7","+3.7"]},
+  {q:"In case of perfectly elastic supply:",o:["Es > 1","Es = 1","Es = 0","Es = ∞"]},
+  {q:"The Supply function is given as q = 120 + 6p. Find the elasticity of supply, when price is ₹10.",o:["+1/3","+2/3","−2/3","+3/4"]},
+  {q:"Which of the following is not a characteristic of land?",o:["Land is heterogeneous.","Land is an active factor.","Supply of land is fixed.","Land has multiple uses."]},
+  {q:"Cobb-Douglas production function is stated as:",o:["Q = Kᵃ L C^(1−a)","Q = K^(1−a) Lᵃ C","Q = Kᵃ L^(1−a) C","Q = K Lᵃ C^(1−a)"]},
+  {q:"What will be the average product when quantity of labour is 6? (Refer Product Schedule)",o:["9","10","11","12"]},
+  {q:"What will be the total product when quantity of labour is 4? (Refer Product Schedule)",o:["38","40","42","44"]},
+  {q:"What will be the marginal product when quantity of labour is 5? (Refer Product Schedule)",o:["8","9","10","11"]},
+  {q:"Who describes production function as the relationship between the maximum amount of output that can be produced and the input required to make that output?",o:["Cobb-Douglas","Samuelson","Paul Sweezy","Alfred Marshall"]},
+  {q:"In short-run, when average cost falls as a result of an increase in output, marginal cost is _______ average cost.",o:["greater than","less than","equal to","independent of"]},
+  {q:"Initially a firm enjoys _______ of scale and beyond a certain limit it suffers from _______ of scale.",o:["internal economies, internal diseconomies","external economies, external diseconomies","internal diseconomies, internal economies","external diseconomies, external economies"]},
+  {q:"The long-run average cost curve is also called:",o:["Kinked curve","Equal quantity curve","Envelope curve","Sharp curve"]},
+  {q:"_______ are already incurred once and for all, and cannot be recovered.",o:["Sunk costs","Historical cost","Private costs","Social costs"]},
+  {q:"Price elasticity of demand of a firm under perfect competition will be:",o:["Very Large","Infinite","Large","Small"]},
+  {q:"Many sellers offering differentiated products to many buyers is the characteristics of:",o:["Perfect competition","Monopolistic competition","Oligopoly competition","Monopoly"]},
+  {q:"Identify the correct relationship among MR, AR & e (price elasticity of demand).",o:["MR = AR × e(e−1)","AR = MR × (e−1)/e","MR = AR × e/(e−1)","MR = AR × (e−1)/e"]},
+  {q:"Total revenue will be maximum, where elasticity is equal to:",o:["1","Less than 1","Greater than 1","Zero"]},
+  {q:"When both demand and supply increase, the equilibrium quantity _______ but the change in equilibrium price is _______",o:["decreases, uncertain","increases, constant","increases, uncertain","decreases, constant"]},
+  {q:"Identify the correct condition/conditions for equilibrium of a firm under perfect competition: (I) MR = MC (II) MR > MC (III) MR < MC (IV) MC should have a positive slope. (V) MC should have a negative slope.",o:["(II) and (V)","(II) and (IV)","(III) and (V)","(I) and (IV)"]},
+  {q:"When a perfect competitive firm earns _______, its average revenues are more than its average total cost.",o:["supernormal profits","normal profits","normal profits and supernormal profits","Losses"]},
+  {q:"Market for soaps and detergents are the appropriate example of:",o:["monopoly","oligopoly","monopolistic competition","perfect competition"]},
+  {q:"Downward sloping and highly inelastic demand curve is the feature of:",o:["monopoly","oligopoly","monopolistic competition","perfect competition"]},
+  {q:"Market characterized by a single buyer of a product or service and is mostly applicable to factor markets in which a single firm is the only buyer of a factor is known as:",o:["Oligopsony","Duopoly","Bilateral monopoly","Monopsony"]},
+  {q:"Assume that when price is ₹20, the quantity demanded is 9 units, and when price is ₹19, the quantity demanded is 10 units. What is the marginal revenue resulting from an increase in output from 9 units to 10 units?",o:["₹20","₹19","₹10","₹1"]},
+  {q:"Average revenue curve is also known as:",o:["Profit Curve","Demand Curve","Average Cost Curve","Indifference Curve"]},
+  {q:"With a decrease in demand there is _______",o:["an overall decrease in price but an increase in equilibrium quantity.","an overall increase in price but a decrease in equilibrium quantity.","a decrease in the equilibrium price and quantity demanded and supplied.","no change in overall price but a reduction in equilibrium quantity."]},
+  {q:"If supply increases in a greater proportion than demand then _______",o:["The new equilibrium price and quantity will be greater than the original.","The new equilibrium price will be greater than original but quantity will be higher.","The new equilibrium price and quantity will be less than the original.","The new equilibrium price will be less than the original equilibrium price."]},
+  {q:"In oligopoly, when the industry is dominated by one large firm which is considered as leader of the group, then it is called:",o:["open oligopoly","collusive oligopoly","partial oligopoly","syndicated oligopoly"]},
+  {q:"The consumption function is a functional relationship between aggregate consumption and:",o:["aggregate disposable income","aggregate demand","aggregate supply","savings"]},
+  {q:"The value of all final goods and services produced in the country within a given period is called:",o:["National Income","Gross Domestic Product (GDP)","Net National Product (NNP)","Gross National Product (GNP)"]},
+  {q:"If GDP_MP is more than GNP_MP it means:",o:["NFIA is positive and earnings abroad exceed foreign earnings domestically.","NFIA is negative.","earnings abroad equal foreign earnings domestically.","NFIA is positive."]},
+  {q:"Find the real GDP if nominal GDP = 720 and price index = 120.",o:["864","500","600","700"]},
+  {q:"Which of the following is not true for personal income?",o:["It is income received by household sector.","It includes Non-profit Institutions serving households.","It is a measure of actual current income receipts of persons only from productive activities.","It excludes retained earnings."]},
+  {q:"Calculate average propensity to save when C = 300 and Y = 1200.",o:["0.25","0.50","0.75","0.80"]},
+  {q:"Marginal propensity to consume is:",o:["zero when the income is zero.","always less than unity but greater than zero.","greater than one when income rises.","it does not depend on income."]},
+  {q:"Product Method or Value-added method for calculation of National Income is also called:",o:["Industrial Origin Method","Income Disposal Method","Factor Payment Method","Distributed Share Method"]},
+  {q:"In a 3-sector model, suppose C = 8 + 0.6 Yd, I = 60, G = T = 10. Find out the equilibrium level of national income.",o:["120","150","180","200"]},
+  {q:"In an economy investment expenditure is increased by ₹300 crores and marginal propensity to consume is 0.6. Calculate the total increase in income.",o:["₹300 crores","₹100 crores","₹650 crores","₹750 crores"]},
+  {q:"While using the income method, which of the following income is included while calculating national income?",o:["Capital gains","Windfall profits","Income from sale of second-hand goods","Commissions and brokerages"]},
+  {q:"Calculate Gross value added at market price if sales = 750, opening stock = 300, closing stock = 200 and intermediate consumption is 250.",o:["400","450","600","650"]},
+  {q:"Nominal GDP is:",o:["Same as real GDP","Real GDP less depreciation","GDP at current prices","GDP at constant prices"]},
+  {q:"The investment multiplier is defined as the ratio of:",o:["change in investment due to change in saving","change in demand due to change in investment","change in consumption due to change in investment","change in national income due to change in investment"]},
+  {q:"The ratio of total consumption to total income is known as:",o:["Average Propensity to Consume (APC)","Marginal Propensity to Consume (MPC)","Saving function","Income function"]},
+  {q:"When entrepreneurs are pessimistic about future market conditions:",o:["It does not impact the economy.","Expansionary phase may begin.","Economy faces contraction in economic activities.","Investments tend to increase."]},
+  {q:"Which of the following is not a characteristic of business cycle?",o:["They occur periodically.","They are recurrent.","They occur at regular intervals.","They have distinct phases of expansion, peak, contraction and trough."]},
+  {q:"Which of the following is not an internal cause of business cycles?",o:["Fluctuations in effective demand","Fluctuation in investment","Variations in government spending","Technology shock"]},
+  {q:"Changes in stock price, new orders for capital and consumer goods are examples of:",o:["Leading indicators","Lagging indicators","Coincident indicators","Non-economic indicators"]},
+  {q:"Variables that change after the real output changes are called:",o:["Leading indicators","Lagging indicators","Coincident indicators","Non-economic indicators"]},
+  {q:"Taxes on agriculture income is levied by:",o:["Central government","State government","Both central and state government as they are in concurrent list.","Local self-government"]},
+  {q:"Government's direct production of an economic good e.g. electricity and public transportation services are example of:",o:["Allocation function","Distribution function","Stabilization function","Protection function"]},
+  {q:"A progressive direct tax system ensures:",o:["Economic growth with stability because it distributes the burden of taxes unequally.","Those who have greater ability to pay contribute more and tax burden is distributed fairly.","Uniform taxes for all.","Luxuries are taxed heavily."]},
+  {q:"Non-debt capital receipts of government include:",o:["Market loans for different purposes","State provident fund (Net)","Securities issued against small savings","Recoveries of loans and advances"]},
+  {q:"When the outcomes of a policy are not visible for some time, it is called:",o:["Recognition lag","Decision lag","Implementation lag","Impact lag"]},
+  {q:"The excess of the government's total expenditure over its total receipts excluding borrowings is termed as:",o:["Revenue deficit","Fiscal deficit","Primary deficit","Budgetary deficit"]},
+  {q:"The receipts which neither create any liability nor cause any reduction in the assets of government are called:",o:["Non-debt capital receipts","Debt capital receipts","Revenue receipts","Estimated receipts"]},
+  {q:"Which of the following is applied on inter-state movement of goods and services and on imports and exports?",o:["CGST","SGST","IGST","Income tax"]},
+  {q:"The cap and trade method used by government to ensure that pollution is minimized in the most cost effective way is an example of:",o:["Government intervention to correct externalities","Government intervention in the case of merit goods","Government intervention in the case of demerit goods","Government intervention for correcting market failure"]},
+  {q:"Which constitutional body maintains fiscal federalism in India?",o:["Central government","Parliament","Reserve Bank of India","Finance Commission"]},
+  {q:"Which of the following is not a characteristic of money?",o:["Generally acceptable","Effortlessly recognisable","Easily transportable","Easily reproducible by people"]},
+  {q:"The currency issued by the Central Bank is known as _______ and is backed by supporting reserves and its value is a sovereign guarantee.",o:["Real money","Credit money","Fiat money","Sovereign bonds"]},
+  {q:"Considering that with a money multiplier of 1.5 there has been an increment of ₹600 cr of money supply. Find out the monetary base.",o:["₹800 cr","₹200 cr","₹400 cr","₹900 cr"]},
+  {q:"Calculate Narrow Money M1: Currency with public ₹88,000 cr; Demand deposit ₹2,20,000 cr; Time deposit ₹2,40,000 cr; Other deposits with RBI ₹2,60,000 cr; Post Office Saving ₹50,000 cr.",o:["₹5,68,000 cr","₹6,18,000 cr","₹5,98,000 cr","₹6,38,000 cr"]},
+  {q:"Calculate currency with the public: Notes ₹45,000 cr; Rupee coins ₹1,500 cr; Small coins ₹750 cr; Cash on hand with banks ₹27,500 cr.",o:["₹74,750 cr","₹19,750 cr","₹73,250 cr","₹29,750 cr"]},
+  {q:"_______ is a penal rate at which RBI lends money to banks, above the rate available under the repo policy.",o:["Marginal standing facility rate","Bank rate","Repo rate","Reverse repo rate"]},
+  {q:"Liquidity Adjustment Facility (LAF) was introduced by RBI on the basis of the recommendation of the _______ Committee on reforms in banking sector.",o:["Tandon","Narsimham","Chore","Basel"]},
+  {q:"Money created by the commercial banks is called _______",o:["Real money","High powered money","Fiat money","Credit money"]},
+  {q:"Under the concept of money supply, the term 'public' does not include _______",o:["Households","Institutions","Government and banking system","Firms"]},
+  {q:"Compute the total credit money created by the banking system if the required reserved ratio is 15% for every ₹12,00,000 deposited in the banking system.",o:["₹1,00,00,000","₹80,00,000","₹1,25,00,000","₹1,50,00,000"]},
+  {q:"Factor Endowment Theory of trade is also known as _______",o:["Baumol and Tobin theory","Adam Smith, Absolute Cost Advantage theory","Heckscher – Ohlin theory","Factor Price Equalisation theory"]},
+  {q:"Which tariff is calculated on the basis of specific contents of the imported goods (duties are payable by its components or related items)?",o:["Compound tariff","Mixed tariff","Ad valorem tariff","Technical tariff"]},
+  {q:"Which tariff is expressed either on the basis of the value of imported goods or on the basis of a unit of measure, depending on which generates the most income for the country?",o:["Ad valorem tariff","Specific tariff","Mixed tariff","Compound tariff"]},
+  {q:"The system wherein the nominal tariff rates on imports of manufactured goods are higher than on intermediate inputs and raw materials is known as _______",o:["Applied tariff","Escalated tariff","Bound tariff","Preferential tariff"]},
+  {q:"Which of the following is a measure to protect human, animal or plant life from risks arising out of additives, pests, toxins, etc. and to protect the biodiversity?",o:["Prohibited tariff","Sanitary and phytosanitary measures","Technical barriers to trade","Anti-dumping duties"]},
+  {q:"With regards to international trade the European Union can be categorised as a _______",o:["Trading bloc","Free trade area","Bilateral agreements","Customs union"]},
+  {q:"Which of the following country is not a member of the G20 economies?",o:["Argentina","India","Tunisia","Mexico"]},
+  {q:"Investments which are reciprocal investments between countries are referred to as _______",o:["Horizontal direct investment","Vertical direct investment","Two-way direct foreign investment","Conglomerate foreign investment"]},
+  {q:"A total ban imposed by the Government on imports or exports of some or all commodities to a particular country or regions for a specified or indefinite period is known as _______",o:["Prohibitive tariff","Anti-dumping duties","Embargo","Rules of origin"]},
+  {q:"The theory of Comparative Advantage in International Trade was presented by _______",o:["Adam Smith","David Ricardo","John Maynard Keynes","Milton Friedman"]},
+  {q:"_______ facilitates and improves access to Indian Government data.",o:["E-Amrit","E-NAM","NDAP","MIDH"]},
+  {q:"Which scheme is aimed at promoting manufacture of electric and hybrid vehicle technology and to ensure sustainable growth for the same?",o:["FAME India","E-Amrit","FIPB","PDMC"]},
+  {q:"Which Act was initially aimed for regulation of large firms which had relatively large market power?",o:["RBI Act","FEMA","RERA","MRTP Act, 1969"]},
+  {q:"From which year onwards, India followed the managed floating exchange rate system?",o:["1990","1991","1995","1993"]},
+  {q:"Minimum Support Price (MSP) is fixed by the Government of India at _______ of the cost of production.",o:["Two and a half times","Half","One and a half time","Twice"]},
+  {q:"Which policy was adopted to ensure world class industrial infrastructure to attract cutting edge technology and boost FDI and local investment in the textile sector?",o:["PM-MITRA","PM Gati Shakti National Master Plan","National Logistic Policy","Production Linked Incentive (PLI) Scheme"]},
+  {q:"During the British period modern industrial sector saw lopsided growth with the dominance of _______ industries.",o:["Wool and cotton","Nylon and silk","Cotton and jute","Silk and cotton"]},
+  {q:"Statutory recognition was granted to _______ to facilitate mobilization of adequate resources and their efficient allocation in the capital markets.",o:["RBI","BSE","SEBI","NSE"]},
+  {q:"In which of the following sector FDI is not permissible?",o:["Telecom","Aviation","Atomic energy","Defence"]},
+  {q:"Production of milk is included in which sector?",o:["Tertiary sector","Service sector","Primary sector","Secondary sector"]}
+];
+
+const OPTS = ['A','B','C','D'];
+let userAnswers = {};
+let currentQ = 0;
+
+function startTest() {
+  document.getElementById('landing').classList.remove('active');
+  const testEl = document.getElementById('test');
+  testEl.classList.add('active');
+  buildGrid();
+  renderQuestion(0);
+}
+
+function buildGrid() {
+  const grid = document.getElementById('q-grid');
+  grid.innerHTML = '';
+  QUESTIONS.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'q-dot';
+    dot.id = `dot-${i}`;
+    dot.textContent = i + 1;
+    dot.onclick = () => renderQuestion(i);
+    grid.appendChild(dot);
+  });
+}
+
+function renderQuestion(idx) {
+  currentQ = idx;
+  const q = QUESTIONS[idx];
+  const num = idx + 1;
+
+  document.getElementById('q-counter').textContent = `QUESTION ${String(num).padStart(2,'0')} / 100`;
+  document.getElementById('q-text').innerHTML = `<span class="q-num-label">${num}.</span>${q.q}`;
+  document.getElementById('header-info').textContent = `Question ${num} of 100`;
+
+  const opts = document.getElementById('options-list');
+  opts.innerHTML = '';
+  q.o.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn' + (userAnswers[idx] === OPTS[i] ? ' selected' : '');
+    btn.innerHTML = `<span class="option-key">${OPTS[i]}</span><span class="option-text">${opt}</span>`;
+    btn.onclick = () => selectOption(idx, OPTS[i]);
+    opts.appendChild(btn);
+  });
+
+  document.getElementById('btn-prev').disabled = idx === 0;
+  document.getElementById('btn-next').textContent = idx === 99 ? 'Submit →' : 'Next →';
+  document.getElementById('btn-next').onclick = idx === 99 ? showSubmitScreen : () => navigate(1);
+
+  updateGrid();
+  updateProgress();
+  document.getElementById('test-main').scrollTop = 0;
+}
+
+function selectOption(qIdx, opt) {
+  userAnswers[qIdx] = opt;
+  renderQuestion(qIdx);
+}
+
+function navigate(dir) {
+  const next = currentQ + dir;
+  if (next >= 0 && next < 100) renderQuestion(next);
+}
+
+function updateGrid() {
+  QUESTIONS.forEach((_, i) => {
+    const dot = document.getElementById(`dot-${i}`);
+    if (!dot) return;
+    dot.className = 'q-dot';
+    if (i === currentQ) dot.classList.add('current');
+    else if (userAnswers[i]) dot.classList.add('answered');
+  });
+}
+
+function updateProgress() {
+  const answered = Object.keys(userAnswers).length;
+  const pct = Math.round((answered / 100) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `${answered} / 100`;
+}
+
+function showSubmitScreen() {
+  const answered = Object.keys(userAnswers).length;
+  document.getElementById('stat-answered').textContent = answered;
+  document.getElementById('stat-skipped').textContent = 100 - answered;
+  hideAll();
+  document.getElementById('submit-screen').classList.add('active');
+}
+
+function backToTest() {
+  hideAll();
+  document.getElementById('test').classList.add('active');
+}
+
+function hideAll() {
+  ['landing','test','submit-screen','result-screen'].forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove('active');
+    if (id === 'test') el.style.display = '';
+  });
+}
+
+function submitTest() {
+  let correct = 0, wrong = 0, skipped = 0;
+  QUESTIONS.forEach((_, i) => {
+    const ua = userAnswers[i];
+    const ca = ANSWER_KEY[i + 1];
+    if (!ua) skipped++;
+    else if (ua === ca) correct++;
+    else wrong++;
+  });
+  const accuracy = correct + wrong > 0 ? Math.round((correct / (correct + wrong)) * 100) : 0;
+
+  document.getElementById('res-score').textContent = correct;
+  document.getElementById('res-correct').textContent = correct;
+  document.getElementById('res-wrong').textContent = wrong;
+  document.getElementById('res-skipped').textContent = skipped;
+  document.getElementById('res-accuracy').textContent = accuracy + '%';
+
+  const pct = correct;
+  let grade, title, gradeStyle;
+  if (pct >= 90) { grade = 'A+ · Distinction'; title = 'Outstanding!'; gradeStyle = 'background:var(--green-bg);color:var(--green-text);border:1px solid var(--green)'; }
+  else if (pct >= 75) { grade = 'A · First Class'; title = 'Excellent Work!'; gradeStyle = 'background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-dim)'; }
+  else if (pct >= 60) { grade = 'B · Second Class'; title = 'Good Performance'; gradeStyle = 'background:var(--blue-bg);color:var(--blue-text);border:1px solid var(--blue)'; }
+  else if (pct >= 40) { grade = 'C · Pass'; title = 'Keep Practising'; gradeStyle = 'background:var(--card);color:var(--text-muted);border:1px solid var(--border)'; }
+  else { grade = 'F · Fail'; title = 'Needs Improvement'; gradeStyle = 'background:var(--red-bg);color:var(--red-text);border:1px solid var(--red)'; }
+
+  document.getElementById('res-title').textContent = title;
+  const gradeEl = document.getElementById('res-grade');
+  gradeEl.textContent = grade;
+  gradeEl.style.cssText = gradeStyle;
+
+  buildReview();
+  hideAll();
+  document.getElementById('result-screen').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function buildReview() {
+  const list = document.getElementById('review-list');
+  list.innerHTML = '';
+  QUESTIONS.forEach((q, i) => {
+    const ua = userAnswers[i];
+    const ca = ANSWER_KEY[i + 1];
+    const caIdx = OPTS.indexOf(ca);
+    const caText = q.o[caIdx];
+    let status;
+    if (!ua) status = 'skipped';
+    else if (ua === ca) status = 'correct';
+    else status = 'wrong';
+
+    const card = document.createElement('div');
+    card.className = `review-card ${status}`;
+    card.dataset.status = status;
+
+    let ansHtml = '';
+    if (status === 'correct') {
+      ansHtml = `<span class="rc-ans your-correct">Your answer: ${ua} — ${q.o[OPTS.indexOf(ua)]}</span>`;
+    } else if (status === 'wrong') {
+      ansHtml = `<span class="rc-ans your-wrong">Your answer: ${ua} — ${q.o[OPTS.indexOf(ua)]}</span>
+                 <span class="rc-ans correct-ans">Correct: ${ca} — ${caText}</span>`;
+    } else {
+      ansHtml = `<span class="rc-ans skipped-ans">Not answered</span>
+                 <span class="rc-ans correct-ans">Correct: ${ca} — ${caText}</span>`;
+    }
+
+    card.innerHTML = `
+      <div class="rc-top">
+        <span class="rc-num">Q${i+1}.</span>
+        <span class="rc-q">${q.q}</span>
+      </div>
+      <div class="rc-answers">${ansHtml}</div>`;
+    list.appendChild(card);
+  });
+}
+
+function filterReview(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.review-card').forEach(card => {
+    card.style.display = (type === 'all' || card.dataset.status === type) ? 'block' : 'none';
+  });
+}
+
+function restartTest() {
+  userAnswers = {};
+  currentQ = 0;
+  hideAll();
+  document.getElementById('landing').classList.add('active');
+}
 </script>
 </body>
 </html>
